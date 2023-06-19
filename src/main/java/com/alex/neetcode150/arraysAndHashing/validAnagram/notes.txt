@@ -1,0 +1,35 @@
+===================
+242 - Valid Anagram
+===================
+
+Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+
+Example 1:
+
+Input: s = "anagram", t = "nagaram"
+Output: true
+Example 2:
+
+Input: s = "rat", t = "car"
+Output: false
+
+
+
+===================
+Solution
+===================
+
+2 Main ways to solve this:
+
+
+1 - Sort both strings alphabetically, then just check if they are equal.
+    If using a language other than Java (where Strings are immutable), this may be the most space-efficient method.
+
+
+2 - Create a HashMap (or array of integers to hold ascii values), to hold counts of each character.
+    then iterate over both strings in one go.
+    You can add 1 to the count for a character if it is in string1,
+    substract 1 from the count for a character if it is in string1,
