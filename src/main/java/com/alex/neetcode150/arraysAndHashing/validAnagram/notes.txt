@@ -28,8 +28,14 @@ Solution
 1 - Sort both strings alphabetically, then just check if they are equal.
     If using a language other than Java (where Strings are immutable), this may be the most space-efficient method.
 
+    Sorting algorithms, either: HeapSort Space O(1) | QuickSort Space O(log(N))
+    So:
+    Time O(N * logN) | Space O(N)
+
 
 2 - Create a HashMap (or array of integers to hold ascii values), to hold counts of each character.
     then iterate over both strings in one go.
     You can add 1 to the count for a character if it is in string1,
     substract 1 from the count for a character if it is in string1,
+
+    Time O(N) | Space O(1)
