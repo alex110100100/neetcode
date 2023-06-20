@@ -1,0 +1,62 @@
+===================
+1 - Two Sum
+===================
+
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+
+You can return the answer in any order.
+
+
+Example 1:
+
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+Example 2:
+
+Input: nums = [3,2,4], target = 6
+Output: [1,2]
+Example 3:
+
+Input: nums = [3,3], target = 6
+Output: [0,1]
+
+
+
+===================
+Solution
+===================
+
+A few potential ways to solve this:
+
+1 - Brute Force
+    At each element of the array, iterate over each element after it and check if they sum to the target.
+
+    Time O(N^2) | Space O(1)
+
+
+
+2 - HashMap (2 pass)
+
+    Create a HashMap
+
+    Iterate through the elements,l adding each as a hashMap key, with its index as the value.
+
+    Iterate through the elements again, checking if the difference between each element and target is a key in the hashmap.
+    If it is, the return the indices of the 2 values.
+
+
+3 - HashMap (1 pass)
+
+    Iterate through the elements.
+    At each element, subtract the element from target, and add the difference as a hashMap key, with index as the value.
+
+    Iterate through the elements again, checking if each element is a key in the hashmap.
+    If it is, the return the indices of the 2 values.
+
+    Similar to above, but just iterate once.
+    This time, the hashmap will contain the differences rather than the values.
+    This way, at each element, we can just check if it's in the hashmap.
+
