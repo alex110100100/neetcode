@@ -47,6 +47,8 @@ A few potential ways to solve this:
     Iterate through the elements again, checking if the difference between each element and target is a key in the hashmap.
     If it is, the return the indices of the 2 values.
 
+    Time O(N) | Space O(N)
+
 
 3 - HashMap (1 pass)
 
@@ -59,4 +61,6 @@ A few potential ways to solve this:
     Similar to above, but just iterate once.
     This time, the hashmap will contain the differences rather than the values.
     This way, at each element, we can just check if it's in the hashmap.
+
+    Time O(N) | Space O(N)
 
