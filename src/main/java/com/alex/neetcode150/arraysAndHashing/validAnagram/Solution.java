@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 
+// Using sorting
 class Solution1 {
     public boolean isAnagram(String s, String t) {
         if (s.length() != t.length()) return false;
@@ -29,6 +30,7 @@ class Solution1 {
     }
 }
 
+// Using a Hashmap
 class Solution2 {
     public boolean isAnagram(String s, String t) {
         if (s.length() != t.length()) return false;
@@ -50,6 +52,7 @@ class Solution2 {
     }
 }
 
+//Using an array
 class Solution3 {
     public boolean isAnagram(String s, String t) {
         if (s.length() != t.length()) return false;
