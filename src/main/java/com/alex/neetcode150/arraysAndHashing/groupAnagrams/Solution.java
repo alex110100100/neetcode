@@ -76,45 +76,6 @@ class Solution2 {
 }
 
 
-class Solution3 {
-    public List<List<String>> groupAnagrams(String[] strs) {
-
-        /*
-            We have a list of Strings
-            To group the anagrams together, we need to consider 2 things:
-                1 - how to determine whether 2 strings are anagrams
-                2 - how to group together many anagrams
-
-            To determine anagrams, we can we keep track of the number of each character
-            in a strings, and then compare with that of the other strings.
-
-            For each String, we can store the character frequencies in an array.
-            We can then use that as a key in a hashmap. This way, anagrams will be saved
-            as values for that key.
-            (Note that we need to convert the array into a String before using it as the
-            a hashmap key, so that we can compare it with the char counts of other Strings.
-            This is because comparing to arrays would compare the address rather than its values).
-         */
-
-        Map<String, List<String>> charCountToAnagrams = new HashMap<>();
-
-        for (String str : strs) {
-            int[] charCounts = new int[26];
-
-            for (char c : str.toCharArray()) {
-                charCounts[c - 'a']++;
-            }
-
-            String key = Arrays.toString(charCounts);
-            charCountToAnagrams.computeIfAbsent(key, k -> new ArrayList<>()).add(str);
-        }
-
-        return new ArrayList<>(charCountToAnagrams.values());
-    }
-}
-
-
-
 class Test {
     public static void main(String[] args) {
         Solution2 solution = new Solution2();
