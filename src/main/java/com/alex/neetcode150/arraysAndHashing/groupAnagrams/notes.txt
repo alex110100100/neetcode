@@ -1,0 +1,43 @@
+===================
+49 - Group Anagrams
+===================
+
+Given an array of strings strs, group the anagrams together. You can return the answer in any order.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
+
+
+
+Example 1:
+
+Input: strs = ["eat","tea","tan","ate","nat","bat"]
+Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+
+
+
+===================
+Solution
+===================
+
+We have a list of Strings...
+
+To group the anagrams together, we need to consider 2 things:
+    1 - how to determine whether 2 strings are anagrams
+    2 - how to group together many anagrams
+
+To determine anagrams, we can we keep track of the number of each character
+in a strings, and then compare with that of the other strings.
+
+For each String, we can store the character frequencies in an array.
+We can then use that as a key in a hashmap. This way, anagrams will be saved
+as values for that key.
+(Note that we need to convert the array into a String before using it as
+a hashmap key, so that we can compare it with the char counts of other Strings.
+This is because comparing to arrays would compare the address rather than its values).
+
+
+Time O(M * N)   because we have N avg characters per string, which we iterate over to add to array
+                and there are M strings, so we have to do that M times
+
+Space O(M * N)
+
