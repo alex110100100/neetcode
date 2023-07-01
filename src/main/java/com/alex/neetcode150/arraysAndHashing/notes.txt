@@ -1,3 +1,8 @@
 You can often trade space for better time complexity.
 
 e.g. Creating a hashset can be a fast way to check for duplicates in an array (see containsDuplicate)
+
+
+Remember, if you need to search for an element, and you want to keep time complexity low,
+then you might want to consider first copying all the elements into a hashset, and then checking if the hashset contains
+the element you're searching for.
