@@ -1,0 +1,38 @@
+===========================================
+659 (LintCode) - Encode and Decode Strings
+===========================================
+
+Design an algorithm to encode a list of strings to a string.
+The encoded string is then sent over the network and is decoded back to the original list of strings.
+
+Please implement encode and decode
+
+
+
+Example1
+
+Input: ["lint","code","love","you"]
+Output: ["lint","code","love","you"]
+Explanation:
+One possible encode method is: "lint:;code:;love:;you"
+
+Example2
+
+Input: ["we", "say", ":", "yes"]
+Output: ["we", "say", ":", "yes"]
+Explanation:
+One possible encode method is: "we:;say:;:::;yes"
+
+
+
+===========================================
+Solution
+===========================================
+
+First we need to convert the list of strings into one string, but we need a delimiter, so that we can later convert
+back to the original strings when decoding.
+
+We choose # for the delimiter, but we could use any character.
+We also need to account for the case where # might appear somewhere in the original strings. We wouldn't to delimit that one.
+So, to get around that, when encoding, we save the length of each string, before our new # character.
+Then, when delimiting, we'll know how many characters should be in each string.
