@@ -1,0 +1,61 @@
+===================================================
+3. Longest Substring Without Repeating Characters
+===================================================
+
+Given a string s, find the length of the longest substring without repeating characters.
+
+
+Example 1:
+
+Input: s = "abcabcbb"
+Output: 3
+Explanation: The answer is "abc", with the length of 3.
+
+
+Example 2:
+
+Input: s = "bbbbb"
+Output: 1
+Explanation: The answer is "b", with the length of 1.
+
+
+Example 3:
+
+Input: s = "pwwkew"
+Output: 3
+Explanation: The answer is "wke", with the length of 3.
+Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
+
+
+
+===================
+Solution
+===================
+
+//create 2 variables, substart, subend, both at index 0
+//create a hashset
+
+// iterate through chars once, by incrementing subend
+//      at each char, check if already in hashset.
+//          if not, add it and increment subend
+//      if it is, then remove current substart char and increment substart by one
+
+
+Solving this problem in O(n) time requires using a sliding window. There are couple of different ways to do it in this
+case. For example:
+
+
+1. - USING A HASHSET
+
+    We're going to create 2 pointers, subStart and subEnd, to represent the start and end of the substring we are currently
+    looking at.
+    We increment the subEnd pointer, adding each character to a hashset as we go. (and updating the max substring length so far)
+    If the hashset already contains the current char at subEnd, then we increment subStart until we find the place where
+    that char already appeared in the String. We remove it from the hashset and then continue on as before.
+
+
+2. - USING A HASHMAP
+
+    Note that in the above solution using a hashset, once we find a duplicate, we have to increment subStart until we find where
+    the original occurrence of that char was.
+    To save having to do this, we could instead use a hashmap which will keep track of the indices of the chars.
