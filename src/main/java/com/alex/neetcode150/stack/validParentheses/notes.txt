@@ -1,0 +1,47 @@
+===================
+20 - Valid Parentheses
+===================
+
+Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+
+An input string is valid if:
+
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Every close bracket has a corresponding open bracket of the same type.
+
+
+Example 1:
+
+Input: s = "()"
+Output: true
+Example 2:
+
+Input: s = "()[]{}"
+Output: true
+Example 3:
+
+Input: s = "(]"
+Output: false
+
+
+
+===================
+Solution
+===================
+
+Create a Character stack
+
+Iterate through the string characters
+    if it's an opening bracket, ADD it to the stack
+
+    if it's a closing bracket:
+        if the stack is empty, return false
+        otherwise, POP an element and check if it's the corresponding opening bracket (if it isn't, return false)
+
+After doing this for the whole string, return true only if the stack is now empty.
+After doing this for the whole string, return true only if the stack is now empty.
+
+
+
+
