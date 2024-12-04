@@ -42,10 +42,36 @@ public class Solution {
 }
 
 
+class Solution2 {
+
+    public String encode(List<String> strs) {
+        StringBuilder sb = new StringBuilder();
+        for (String str : strs) {
+            sb.append(str.length()).append('#').append(str);
+        }
+        return sb.toString();
+    }
+
+    public List<String> decode(String str) {
+        List<String> words = new ArrayList<>();
+        int i = 0;
+        while (i < str.length()) {
+            int hashIdx = str.indexOf('#', i);
+            int size = Integer.valueOf(str.substring(i, hashIdx));
+            String word = str.substring(hashIdx + 1, hashIdx + 1 + size);
+            words.add(word);
+            i = hashIdx + size + 1;
+        }
+        return words;
+    }
+}
+
+
+
 
 class Test {
     public static void main(String[] args) {
-        Solution solution = new Solution();
+        Solution2 solution = new Solution2();
 
         // Test Case 1: Basic example
         List<String> input1 = Arrays.asList("abc", "def", "ghi");
