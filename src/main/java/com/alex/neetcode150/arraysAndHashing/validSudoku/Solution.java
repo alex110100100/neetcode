@@ -33,6 +33,61 @@ class Solution {
 }
 
 
+// Same approach as above solution, but maybe easier to understand
+class VerboseSolution {
+    public boolean isValidSudoku(char[][] board) {
+        Set<Character>[] columnSets = new HashSet[9];
+        Set<Character>[] rowSets = new HashSet[9];
+        Set<Character>[][] boxSets = new HashSet[3][3];
+
+        columnSets[0] = new HashSet<>();
+        columnSets[1] = new HashSet<>();
+        columnSets[2] = new HashSet<>();
+        columnSets[3] = new HashSet<>();
+        columnSets[4] = new HashSet<>();
+        columnSets[5] = new HashSet<>();
+        columnSets[6] = new HashSet<>();
+        columnSets[7] = new HashSet<>();
+        columnSets[8] = new HashSet<>();
+
+        rowSets[0] = new HashSet<>();
+        rowSets[1] = new HashSet<>();
+        rowSets[2] = new HashSet<>();
+        rowSets[3] = new HashSet<>();
+        rowSets[4] = new HashSet<>();
+        rowSets[5] = new HashSet<>();
+        rowSets[6] = new HashSet<>();
+        rowSets[7] = new HashSet<>();
+        rowSets[8] = new HashSet<>();
+
+        boxSets[0][0] = new HashSet<>();
+        boxSets[0][1] = new HashSet<>();
+        boxSets[0][2] = new HashSet<>();
+        boxSets[1][0] = new HashSet<>();
+        boxSets[1][1] = new HashSet<>();
+        boxSets[1][2] = new HashSet<>();
+        boxSets[2][0] = new HashSet<>();
+        boxSets[2][1] = new HashSet<>();
+        boxSets[2][2] = new HashSet<>();
+
+
+        for (int row = 0; row < board.length; row++) {
+            for (int column = 0; column < board.length; column++) {
+                char c = board[row][column];
+                if (c == '.') continue;
+
+                if (columnSets[column].contains(c) || rowSets[row].contains(c) || boxSets[row/3][column/3].contains(c))
+                    return false;
+
+                columnSets[column].add(c);
+                rowSets[row].add(c);
+                boxSets[row/3][column/3].add(c);
+            }
+        }
+
+        return true;
+    }
+}
 
 
 
